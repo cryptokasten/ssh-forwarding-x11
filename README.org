@@ -1,0 +1,38 @@
+#+TITLE: SSH forwarding X11
+#+PROPERTY: header-args:sh :session *shell ssh-forwarding-x11 sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell ssh-forwarding-x11 python* :results silent raw
+#+OPTIONS: ^:nil
+
+** System environment
+
+- CentOS Linux release 8.1.1911 (Core)
+
+** SSH config
+
+Append =/etc/ssh/sshd_config= file with strings:
+
+#+BEGIN_SRC conf
+X11Forwarding yes
+X11UseLocalhost no
+#+END_SRC
+
+** Install xauth
+
+#+BEGIN_SRC sh
+yum install xauth
+#+END_SRC
+
+** Connect
+
+On client host.
+
+#+BEGIN_SRC sh
+ssh -X server
+#+END_SRC
+
+or
+
+#+BEGIN_SRC conf
+Host web
+     ForwardX11 yes
+#+END_SRC
