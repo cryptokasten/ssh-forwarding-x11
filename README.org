@@ -9,7 +9,7 @@
 
 ** SSH config
 
-Append =/etc/ssh/sshd_config= file with strings:
+On server. Append =/etc/ssh/sshd_config= file with strings:
 
 #+BEGIN_SRC conf
 X11Forwarding yes
@@ -17,6 +17,8 @@ X11UseLocalhost no
 #+END_SRC
 
 ** Install xauth
+
+On server.
 
 #+BEGIN_SRC sh
 yum install xauth
